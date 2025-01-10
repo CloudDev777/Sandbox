@@ -1,0 +1,1 @@
+This is a place for me to play around with code, and practice. I want to make a lot of fun things to get even more comfortable with Javascript.
