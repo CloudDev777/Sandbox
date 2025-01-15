@@ -1,4 +1,43 @@
 
+
+// const entireDeck = [
+//     fetch('http://localHost.3000/cardLibrary')
+//     .then(response => response.json())
+//     .then(cardLibrary => (){
+
+//     })
+//     redCards,
+//     orangeCards,
+//     yellowCards,
+//     greenCards,
+//     blueCards,
+//     purpleCards,
+//     pinkCards,
+//     whiteCards,
+//     blackCards,
+// ]
+
+const entireDeck = [];
+
+('http://localhost:3000/cardLibrary')
+  .then(response => response.json())
+  .then(cardLibrary => {
+    // Add each color deck to entireDeck in order
+    entireDeck.push(cardLibrary.blackCards);
+    entireDeck.push(cardLibrary.whiteCards);
+    entireDeck.push(cardLibrary.pinkCards);
+    entireDeck.push(cardLibrary.purpleCards);
+    entireDeck.push(cardLibrary.blueCards);
+    entireDeck.push(cardLibrary.greenCards);
+    entireDeck.push(cardLibrary.yellowCards);
+    entireDeck.push(cardLibrary.orangeCards);
+    entireDeck.push(cardLibrary.redCards);
+    
+    // Now entireDeck is populated and you can use it
+    console.log(entireDeck);
+  })
+
+
 function drawCard() {
     // Pick a random color deck
     const randomDeckIndex = Math.floor(Math.random() * entireDeck.length)
@@ -29,6 +68,8 @@ function drawCard() {
     
 }
 
+let cardPullArray = [] // an empty array assigned to variable to contain the pulled cards for color meaning assesment
+
 
 function colorCounts(){
     let colorCounts = {} //create an empty object
@@ -44,7 +85,7 @@ function colorCounts(){
 
 
 function threeCardSpreadWithDelay() {
-    let cardPullArray = [] // an empty array assigned to variable to contain the pulled cards for color meaning assesment
+    // let cardPullArray = [] 
     let firstCard = drawCard()
     console.log(firstCard)
     cardPullArray.push(firstCard) 

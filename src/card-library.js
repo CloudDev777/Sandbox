@@ -1,12 +1,5 @@
 //Prism Oracle Guide
 
-const orangeCards = {
-    Energy: "Tap into the momentum of something you have been working on. Pursue whatever calls you.",
-    Frustration: " Despite your efforts, you keep hitting walls. Take a step back, and look at alternatives.",
-    Happiness: 'Often we focus on when we are feeling bad, so take this time to cherish your joy. Feel its warmth.',
-    Rejection: 'Try to reframe this pain. Whatever rejected you is not meant to be in your life.',
-    Success: 'It\'s time to tap into the warmth of accomplishment. You have been working hard. Appreciate your growth.',
-}
 
 const redCards = {
     Anger: 'Acknowledge what you cannot control. Channel this immense energy into something helpful.',
@@ -14,6 +7,14 @@ const redCards = {
     Passion: 'A fire in your belly, a drive inside your heart. Celebrate, love; embrace your desires.',
     Stop: 'Take a beat, and reflect. Maybe you just need to take a break. It\'s time to contemplate.',
     Strength: 'Power in the heart and in the mind, trust yourself and face your fears. You can overcome anything.',
+}
+
+const orangeCards = {
+    Energy: "Tap into the momentum of something you have been working on. Pursue whatever calls you.",
+    Frustration: " Despite your efforts, you keep hitting walls. Take a step back, and look at alternatives.",
+    Happiness: 'Often we focus on when we are feeling bad, so take this time to cherish your joy. Feel its warmth.',
+    Rejection: 'Try to reframe this pain. Whatever rejected you is not meant to be in your life.',
+    Success: 'It\'s time to tap into the warmth of accomplishment. You have been working hard. Appreciate your growth.',
 }
 
 const yellowCards = {
@@ -69,13 +70,26 @@ const blackCards = {
     Death: 'Death brings great change. A phase or cycle in your life is coming to an end, and with it a new beginning.',
     Fear: 'Summon your courage and brave your fears. Cast aside your doubt and believe in your strength, the night is almost through.',
     Protection: 'Be mindful of your safety, in heart and mind. What makes you feel impervious? Shield yourself from darkness.',
-    Space: 'You are not lost, your spirit can fill the emptiness around you. Space makes room for opportunity, be bold.',
+    Space: 'You are not lost, your spirit can fill the emptiness around you. Space makes room for opportunity, use it: be bold.',
 }
 
 
-const entireDeck = [blackCards, whiteCards, pinkCards, purpleCards, blueCards, greenCards, yellowCards, orangeCards, redCards]
+// const entireDeck = [blackCards, whiteCards, pinkCards, purpleCards, blueCards, greenCards, yellowCards, orangeCards, redCards]
 
-const deckColors = ['Black', 'White', 'Pink', 'Purple', 'Blue', 'Green', 'Yellow', 'Orange', 'Red']
+
+// const entireDeck = [
+//     redCards,
+//     orangeCards,
+//     yellowCards,
+//     greenCards,
+//     blueCards,
+//     purpleCards,
+//     pinkCards,
+//     whiteCards,
+//     blackCards,
+// ]
+
+const deckColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Pink', 'White', 'Black']
 
 
 
@@ -85,9 +99,10 @@ const colorMeanings = {
     Yellow: 'Yellow Cards: You may need to take a look at the duality of a situation. Yellow can be double-sided, are you seeing both sides? Are you limiting yourself to a singular viewpoint?',
     Green: 'Green Cards: There is an opportunity for renewal, either through gratitude for abundance, movement on a new project, or rest. Let things unfold and grow.',
     Blue: 'Blue Cards: Honor this time of transition and change. All blue cards deal with the crossing of a threshold. Surrender to the flow, and accept change.',
-    Violet: 'Violet Cards: You may be in the process of creating a deeper relationship with your intuition. Embrace this newfound energy, but stay grounded.',
+    Purple: 'Purple Cards: You may be in the process of creating a deeper relationship with your intuition. Embrace this newfound energy, but stay grounded.',
     Pink: 'Pink Cards: Tenderness and love surround you, either for yourself or another. Gentleness and sensitivity are your strengths right now; share them.',
-    Black: 'Black Cards: This is an invitation to step into a new phase of your life. How can you create space for newness, or cultivate courage?',
     White: 'White Cards: There is a sense of stillness for you to embrace. How can you manifest calm and tranquility in your life right now?',
+    Black: 'Black Cards: This is an invitation to step into a new phase of your life. How can you create space for newness, or cultivate courage?',
 }
+
 
