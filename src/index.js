@@ -30,7 +30,17 @@ function drawCard() {
 }
 
 
-
+function colorCounts(){
+    let colorCounts = {} //create an empty object
+            for(let card of cardPullArray){ //iterate over cardPullArray
+                colorCounts[card.Color] = (colorCounts[card.Color] || 0) + 1 //card.Color gives color string from drawCard() return object, like "Black"
+            }  //the OR operator is simplifying an if statement: if the left side returns undefined, then we get 0) + 1
+            for(let color in colorCounts){
+                if(colorCounts[color] > 1){
+                    console.log(colorMeanings[color])
+                }
+            }   
+}
 
 
 function threeCardSpreadWithDelay() {
@@ -55,19 +65,13 @@ function threeCardSpreadWithDelay() {
             console.log(thirdCard)
             cardPullArray.push(thirdCard)  
 
-            let colorCounts = {} //create an empty object
-            for(let card of cardPullArray){ //iterate over cardPullArray
-                colorCounts[card.Color] = (colorCounts[card.Color] || 0) + 1 //card.Color gives color string from drawCard() return object, like "Black"
-            }  //the OR operator is simplifying an if statement: if the left side returns undefined, then we get 0) + 1
-            for(let color in colorCounts){
-                if(colorCounts[color] > 1){
-                    console.log(colorMeanings[color])
-                }
-            }   
+            colorCounts()
         
         }, 3000)
     }, 3000)
 }
+
+
 
 
 function background(){
