@@ -17,9 +17,9 @@ body {
 
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    
+    letter-spacing: 3vw;
     text-align: center;
-    font-size: 4vw;
+    font-size: 5vw;
     color: white;
     padding: 0;
     position: fixed; 
@@ -35,11 +35,11 @@ h1 {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-54%, -20%);
     z-index: 1000; /* Make sure it's above everything */
     background: transparent;
     border: none;
-    padding: 50px 200px; /* Make the clickable area generous */
+    padding: 75px 250px; /* Make the clickable area generous */
     cursor: pointer;
 }
 
@@ -47,18 +47,14 @@ h1 {
 
 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
   
 
   
 .text-line {
     width: 100%;
     white-space: nowrap;
-    font-size: 10.1vw;
+    font-size: 9.2vw;
     line-height: .8;
     font-weight: bold;
     background: linear-gradient(45deg,violet,red, red, orange, yellow, green, blue, indigo, violet); /* cannoot figure out this last transition issue*/
@@ -77,6 +73,79 @@ h1 {
     100% { background-position: 400% 50% }
 }
 
+#outer-spread-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-3%, 0%);
+    
+
+    
+}
+
+.spread-container {
+    padding: 20px;
+    width: 15%;
+    margin: 50px;
+    margin-top: 10vh;
+    display: inline-block;
+    
+    
+}
+
+
+
+
+.card-1-meaning, .card-2-meaning, .card-3-meaning{
+    font-size: 14pt;
+    text-align: left;
+    font-family: helvetica;
+    margin: 10px;
+    padding: 10px;
+    max-width: 60vw;
+/*     margin-left: 10vw; */
+    margin-top: 3vh;
+    color: white;
+    letter-spacing: 3px;
+    text-wrap: wrap;
+    line-height: 28px;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(27%, 0%);
+    
+    
+}
+    
+    
+    
+
+
+.color-meaning {
+    font-size: 14pt;
+    text-align: left;
+    font-family: helvetica;
+    margin: 5px;
+    padding: 10px;
+    margin-top: 3vh;
+    max-width: 60vw;
+    margin-left: 9vw;
+    color: white;
+    letter-spacing: 3px;
+    text-wrap: wrap;
+    line-height: 28px;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(13%, 0%);
+    z-index: 100;
+   
+    
+
+
+}
 
 
 #night-sky {
