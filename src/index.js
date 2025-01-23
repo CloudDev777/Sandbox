@@ -153,7 +153,7 @@ function threeCardSpread() {
 
 
     setTimeout( () => {
-        cardOneReveal.addEventListener("touch", () =>{  
+        cardOneReveal.addEventListener("click", () =>{  
             
             firstCard = drawCard()
             cardPullArray.push(firstCard)
@@ -162,7 +162,7 @@ function threeCardSpread() {
             handleCardVanish('firstCard') 
 
         }, {once: true})
-        cardTwoReveal.addEventListener("touch", () => {
+        cardTwoReveal.addEventListener("click", () => {
 
             secondCard = drawCard()
             while (cardPullArray.some(card => card.Card === secondCard.Card)) {
@@ -173,7 +173,7 @@ function threeCardSpread() {
             displayCard(secondCard, 2)
 
         }, {once: true})
-        cardThreeReveal.addEventListener("touch", () => {
+        cardThreeReveal.addEventListener("click", () => {
         
             thirdCard = drawCard()
             while (cardPullArray.some(card => card.Card === thirdCard.Card)) {
