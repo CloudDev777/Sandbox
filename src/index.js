@@ -99,6 +99,10 @@ function cardBacks() {
     const cardTwoBack = document.querySelector('#card-2-back');
     const cardThreeBack = document.querySelector('#card-3-back');
 
+    cardOneBack.classList.add('card-back')
+    cardTwoBack.classList.add('card-back')
+    cardThreeBack.classList.add('card-back')
+
 
     const cardOneBackImage = document.createElement('img')
     cardOneBackImage.src = "./Images/Cards/sacred-geometry-svg.svg"
@@ -146,7 +150,10 @@ function threeCardSpread() {
     let secondCard
     let thirdCard
 
-    setTimeout( () => {
+    let timeoutId;
+    if (timeoutId) clearTimeout(timeoutId);
+
+    timeoutId = setTimeout( () => {
         cardOneReveal.addEventListener("mouseenter", () =>{  
             
             firstCard = drawCard()
@@ -178,12 +185,17 @@ function threeCardSpread() {
             handleCardVanish('thirdCard')
             displayCard(thirdCard, 3)
             elementCounts()
-            submitForm()
+            // submitForm()
+
+           
+            setTimeout(() => {
+                document.querySelector('.form-container').classList.add('form-visible');
+            }, 500); 
             
             
         
         }, {once: true})
-    }, 4000)
+    }, 8000)
     cardHover()
 }
 
@@ -298,7 +310,7 @@ function enterButton() {
     const buttonElement = document.querySelector('#enter-button')
     const enterTextElement = document.querySelector('#enter')
     const prismTextElement = document.querySelector('.tessellation-container')
-    const textElements = document.querySelectorAll('.text-line')
+    // const textElements = document.querySelectorAll('.text-line')
     
     enterTextElement.style.cursor = 'pointer'
     
