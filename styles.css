@@ -95,6 +95,39 @@ h1 {
 }
 
 
+
+.invisible-button-card-1, .invisible-button-card-2, .invisible-button-card-3 {
+    position: absolute;
+    top: 26%;  /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the button itself */
+    z-index: 1000;
+    background: transparent;
+    border: none;
+    padding: 130px 80px;
+    cursor: pointer;
+}
+
+/* Then position each button individually */
+.invisible-button-card-1 {
+    left: 25%;  /* Adjust these percentages */
+}
+
+.invisible-button-card-2 {
+    left: 50%;  /* to match your card spacing */
+}
+
+.invisible-button-card-3 {
+    left: 75%;
+}
+
+
+
+.button-vanish{
+    display: none;
+}
+
+
 .entire-reading {
     position: relative;
     width: 100%;
@@ -161,6 +194,11 @@ h1 {
 [class^="card-"] {
     transition: transform 0.5s ease;
 }
+
+
+
+
+
 
 
 .card-1-meaning, .card-2-meaning, .card-3-meaning{

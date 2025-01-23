@@ -129,12 +129,15 @@ function handleCardVanish(card){
     if(card === 'firstCard'){
         document.querySelector('#card-1-back').classList.add('card-vanish')
         
+        
     }else if(card === 'secondCard'){
         document.querySelector('#card-2-back').classList.add('card-vanish')
+        
         
     }
     else if(card === 'thirdCard'){
         document.querySelector('#card-3-back').classList.add('card-vanish')
+        
         
     }
 }
@@ -142,59 +145,104 @@ function handleCardVanish(card){
 
 
 function threeCardSpread() {
-    const cardOneReveal = document.querySelector(".card-1")
-    const cardTwoReveal = document.querySelector(".card-2")
-    const cardThreeReveal = document.querySelector(".card-3")
+    let firstCard, secondCard, thirdCard
+    const invisibleButtonOne = document.querySelector('.invisible-button-card-1')
+    const invisibleButtonTwo = document.querySelector('.invisible-button-card-2')
+    const invisibleButtonThree = document.querySelector('.invisible-button-card-3')
 
-    let firstCard
-    let secondCard
-    let thirdCard
-
-
-
-    setTimeout( () => {
-        cardOneReveal.addEventListener("click", () =>{  
-            
+    setTimeout(() => {
+        invisibleButtonOne.addEventListener('click', () => {
             firstCard = drawCard()
             cardPullArray.push(firstCard)
-            
             displayCard(firstCard, 1)
-            handleCardVanish('firstCard') 
+            handleCardVanish('firstCard')
+            invisibleButtonOne.classList.add('button-vanish')
+        }, { once: true })
 
-        }, {once: true})
-        cardTwoReveal.addEventListener("click", () => {
-
+        invisibleButtonTwo.addEventListener('click', () => {
             secondCard = drawCard()
             while (cardPullArray.some(card => card.Card === secondCard.Card)) {
-                secondCard = drawCard();
+                secondCard = drawCard()
             }
             cardPullArray.push(secondCard)
             handleCardVanish('secondCard')
             displayCard(secondCard, 2)
+            invisibleButtonTwo.classList.add('button-vanish')
+        }, { once: true })
 
-        }, {once: true})
-        cardThreeReveal.addEventListener("click", () => {
-        
+        invisibleButtonThree.addEventListener('click', () => {
             thirdCard = drawCard()
             while (cardPullArray.some(card => card.Card === thirdCard.Card)) {
                 thirdCard = drawCard()
             }
             cardPullArray.push(thirdCard)
-
             handleCardVanish('thirdCard')
             displayCard(thirdCard, 3)
+            invisibleButtonThree.classList.add('button-vanish')
             elementCounts()
             submitForm()
+        }, { once: true })
+    }, 3000)
+    cardHover()
+}
+
+
+
+// function threeCardSpread() {
+//     const cardOneReveal = document.querySelector(".card-1")
+//     const cardTwoReveal = document.querySelector(".card-2")
+//     const cardThreeReveal = document.querySelector(".card-3")
+
+//     let firstCard
+//     let secondCard
+//     let thirdCard
+
+
+
+//     setTimeout( () => {
+//         cardOneReveal.addEventListener("click", () =>{  
+            
+//             firstCard = drawCard()
+//             cardPullArray.push(firstCard)
+            
+            
+//             displayCard(firstCard, 1)
+//             // cardButtons('firstCard') 
+
+//         }, {once: true})
+//         cardTwoReveal.addEventListener("click", () => {
+
+//             secondCard = drawCard()
+//             while (cardPullArray.some(card => card.Card === secondCard.Card)) {
+//                 secondCard = drawCard();
+//             }
+//             cardPullArray.push(secondCard)
+//             // cardButtons('secondCard')
+//             displayCard(secondCard, 2)
+
+//         }, {once: true})
+//         cardThreeReveal.addEventListener("click", () => {
+        
+//             thirdCard = drawCard()
+//             while (cardPullArray.some(card => card.Card === thirdCard.Card)) {
+//                 thirdCard = drawCard()
+//             }
+//             cardPullArray.push(thirdCard)
+
+//             // cardButtons('thirdCard')
+//             displayCard(thirdCard, 3)
+//             elementCounts()
+//             submitForm()
 
            
            
             
             
         
-        }, {once: true})
-    }, 6000)
-    cardHover()
-}
+//         }, {once: true})
+//     }, 6000)
+//     cardHover()
+// }
 
 
 
