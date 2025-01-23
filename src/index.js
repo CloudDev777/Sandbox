@@ -150,10 +150,9 @@ function threeCardSpread() {
     let secondCard
     let thirdCard
 
-    let timeoutId;
-    if (timeoutId) clearTimeout(timeoutId);
 
-    timeoutId = setTimeout( () => {
+
+    setTimeout( () => {
         cardOneReveal.addEventListener("mouseenter", () =>{  
             
             firstCard = drawCard()
@@ -185,17 +184,15 @@ function threeCardSpread() {
             handleCardVanish('thirdCard')
             displayCard(thirdCard, 3)
             elementCounts()
-            // submitForm()
+            submitForm()
 
            
-            setTimeout(() => {
-                document.querySelector('.form-container').classList.add('form-visible');
-            }, 500); 
+           
             
             
         
         }, {once: true})
-    }, 8000)
+    }, 6000)
     cardHover()
 }
 

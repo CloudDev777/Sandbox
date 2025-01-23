@@ -53,10 +53,10 @@ h1 {
     top: 40%;
     left: 50%;
     transform: translate(-54%, -20%);
-    z-index: 1000; /* Make sure it's above everything */
+    z-index: 1000; 
     background: transparent;
     border: none;
-    padding: 75px 250px; /* Make the clickable area generous */
+    padding: 75px 250px; 
     cursor: pointer;
     
 }
@@ -98,7 +98,7 @@ h1 {
 .entire-reading {
     position: relative;
     width: 100%;
-    min-height: 100vh; /* Ensure minimum height */
+    min-height: 100vh; 
 }
 
 
@@ -110,7 +110,7 @@ h1 {
     top: 50%; 
     left: 50%; 
     transform: translate(0%, 0%);
-    margin-bottom: 2rem; /* Space for meanings */
+    margin-bottom: 2rem;
     
 
     
@@ -164,47 +164,44 @@ h1 {
 
 
 .meanings-container {
-    width: 80%;  /* Match your desired width */
+    width: 80%;  
     margin: 0 auto;
     position: relative;
 }
 
 
-/* Modify meanings to use more stable positioning */
+
 .card-1-meaning, .card-2-meaning, .card-3-meaning {
     font-size: 14pt;
     text-align: left;
     font-family: helvetica;
     padding: 1rem;
     max-width: 60vw;
-    margin: 3vh auto; /* Center horizontally */
+    margin: 3vh auto;
     color: white;
     letter-spacing: 3px;
     line-height: 28px;
     border-radius: 20px;
     transition: 0.5s ease;
-    position: relative; /* Remove absolute positioning */
-    transform: none; /* Remove transform */
+    position: relative; 
+    transform: none;
 }
     
 
 .color-meaning {
-    font-size: 14pt;
+   font-size: 14pt;
     text-align: left;
     font-family: helvetica;
-    padding: 0px;
-    margin-top: 3vh;
+    padding: 1rem;
     max-width: 60vw;
-    margin-left: 11.5vw;
+    margin: 3vh auto;
     color: white;
     letter-spacing: 3px;
-    text-wrap: wrap;
     line-height: 28px;
-    top: 50%; 
-    left: 50%; 
-    transform: translate(13%, 0%);
-    z-index: 100;
-    transition:  0.5s ease;
+    border-radius: 20px;
+    transition: 0.5s ease;
+    position: relative; 
+    transform: none;
 
 }
 
@@ -216,7 +213,7 @@ h1 {
 
 .form-container {
     visibility: hidden;
-    height: 100px;  /* Set explicit height based on your form's size */
+    height: 100px;  
     margin-top: 2rem;
     opacity: 0;
     transition: opacity 0.5s ease;
