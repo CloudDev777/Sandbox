@@ -295,7 +295,7 @@ function elementText(card, colorElementObject){
 
 function background(){
     const backgroundImage = document.createElement('img')
-    backgroundImage.src = 'Images/Others/_BB18312.jpg'
+    backgroundImage.src = './Images/Others/_BB18312.jpg'
     const body = document.querySelector('body')
     body.appendChild(backgroundImage)
     backgroundImage.id = 'night-sky'
