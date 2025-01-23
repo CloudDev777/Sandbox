@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 400">
+  <!-- Background -->
+  <rect width="100" height="400" fill="#000"/>
+  
+  <!-- Vertical flowing waves -->
+  <g opacity="0.5">
+    <path d="M20 0 C40 20, 10 40, 30 60 C50 80, 20 100, 40 120 C60 140, 30 160, 50 180" 
+          stroke="white" fill="none" stroke-width="0.5"/>
+    <path d="M80 0 C100 20, 70 40, 90 60 C110 80, 80 100, 100 120 C120 140, 90 160, 110 180" 
+          stroke="white" fill="none" stroke-width="0.5"/>
+    <path d="M50 0 C70 20, 40 40, 60 60 C80 80, 50 100, 70 120 C90 140, 60 160, 80 180" 
+          stroke="white" fill="none" stroke-width="0.5"/>
+  </g>
+
+  <!-- Constellation anchor points -->
+  <g opacity="0.8">
+    <circle cx="30" cy="120" r="1" fill="white"/>
+    <circle cx="70" cy="140" r="1" fill="white"/>
+    <circle cx="45" cy="160" r="1" fill="white"/>
+    <path d="M30 120 L70 140 L45 160" stroke="white" stroke-width="0.5" fill="none" opacity="0.3"/>
+  </g>
+
+  <!-- Continuing vertical flow -->
+  <g opacity="0.4">
+    <path d="M30 180 C50 200, 20 220, 40 240 C60 260, 30 280, 50 300 C70 320, 40 340, 60 360" 
+          stroke="white" fill="none" stroke-width="0.7"/>
+    <path d="M70 180 C90 200, 60 220, 80 240 C100 260, 70 280, 90 300 C110 320, 80 340, 100 360" 
+          stroke="white" fill="none" stroke-width="0.7"/>
+  </g>
+
+  <!-- Subtle background waves -->
+  <g opacity="0.3">
+    <path d="M0 40 C20 60, -10 80, 10 100 C30 120, 0 140, 20 160 C40 180, 10 200, 30 220" 
+          stroke="white" fill="none" stroke-width="0.4"/>
+    <path d="M90 40 C110 60, 80 80, 100 100 C120 120, 90 140, 110 160 C130 180, 100 200, 120 220" 
+          stroke="white" fill="none" stroke-width="0.4"/>
+  </g>
+
+  <!-- Additional flowing elements -->
+  <g opacity="0.6">
+    <path d="M40 240 C60 260, 30 280, 50 300 C70 320, 40 340, 60 360 C80 380, 50 400, 70 420" 
+          stroke="white" fill="none" stroke-width="0.5"/>
+    <path d="M60 240 C80 260, 50 280, 70 300 C90 320, 60 340, 80 360 C100 380, 70 400, 90 420" 
+          stroke="white" fill="none" stroke-width="0.5"/>
+  </g>
+
+  <!-- Vertical energy streams -->
+  <g opacity="0.5">
+    <path d="M20 280 C40 300, 10 320, 30 340 C50 360, 20 380, 40 400" 
+          stroke="white" fill="none" stroke-width="0.6"/>
+    <path d="M80 280 C100 300, 70 320, 90 340 C110 360, 80 380, 100 400" 
+          stroke="white" fill="none" stroke-width="0.6"/>
+  </g>
+</svg>

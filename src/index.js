@@ -50,8 +50,9 @@ function drawCard() {
         'Card': randomCardName.toUpperCase(),      
         'Element': deckElements[randomDeckIndex],    
         'Meaning': randomDeck[randomCardName].meaning,
-        'Image' : randomDeck[randomCardName].image  
-    }    
+        'Image' : randomDeck[randomCardName].image    
+    }  
+       
     
 }
 
@@ -60,71 +61,136 @@ function drawCard() {
 let cardPullArray = [] 
 
 
-function colorCounts(){
-    let colorCounts = {} 
+function elementCounts(){
+    let elementCounts = {} 
             for(let card of cardPullArray){ 
-                colorCounts[card.Element] = (colorCounts[card.Element] || 0) + 1 
+                elementCounts[card.Element] = (elementCounts[card.Element] || 0) + 1 
             }  
-            for(let color in colorCounts){
-                if(colorCounts[color] > 1){
-                    return elementMeanings[color]
+            for(let element in elementCounts){
+                if(elementCounts[element] > 1){
+                    return elementMeanings[element]
+                    
                     
                 }
             }   
+            
+
 }
+
+
+
+function mouseEnterArea() {
+    const cardImages = document.querySelectorAll('[class$="-image"]')
+    cardImages.forEach(img => {
+      const textBelow = document.createElement('p')
+      textBelow.textContent = '。°。°。°。°。°'
+      textBelow.classList.add('text-below')
+      img.parentElement.appendChild(textBelow)
+
+    })
+    
+}
+
+
+
+function cardBacks() {
+  
+    const cardOneBack = document.querySelector('#card-1-back');
+    const cardTwoBack = document.querySelector('#card-2-back');
+    const cardThreeBack = document.querySelector('#card-3-back');
+
+
+    const cardOneBackImage = document.createElement('img')
+    cardOneBackImage.src = "./Images/Cards/sacred-geometry-svg.svg"
+    cardOneBack.appendChild(cardOneBackImage)
+    
+
+    const cardTwoBackImage = document.createElement('img')
+    cardTwoBackImage.src = "./Images/Cards/sacred-geometry-svg.svg"
+    cardTwoBack.appendChild(cardTwoBackImage)
+    
+    
+    const cardThreeBackImage = document.createElement('img')
+    cardThreeBackImage.src = "./Images/Cards/sacred-geometry-svg.svg"
+    cardThreeBack.appendChild(cardThreeBackImage)
+
+    mouseEnterArea()
+
+}
+
+
+
+function handleCardVanish(card){
+
+    if(card === 'firstCard'){
+        document.querySelector('#card-1-back').classList.add('card-vanish')
+        
+    }else if(card === 'secondCard'){
+        document.querySelector('#card-2-back').classList.add('card-vanish')
+        
+    }
+    else if(card === 'thirdCard'){
+        document.querySelector('#card-3-back').classList.add('card-vanish')
+        
+    }
+}
+
+
+
 
 
 
 
 
 function threeCardSpread() {
-    const cardOneReveal = document.querySelector(".card-1-back")
-    const cardTwoReveal = document.querySelector(".card-2-back")
-    const cardThreeReveal = document.querySelector(".card-3-back")
-    
+    const cardOneReveal = document.querySelector(".card-1")
+    const cardTwoReveal = document.querySelector(".card-2")
+    const cardThreeReveal = document.querySelector(".card-3")
 
     let firstCard
     let secondCard
     let thirdCard
 
-    cardOneReveal.addEventListener("mouseenter", () =>{
-        firstCard = drawCard()
-        cardPullArray.push(firstCard)
-        displayCard(firstCard, 1)
-        console.log(firstCard)
+    setTimeout( () => {
+        cardOneReveal.addEventListener("mouseenter", () =>{  
+            
+            firstCard = drawCard()
+            cardPullArray.push(firstCard)
+            
+            displayCard(firstCard, 1)
+            handleCardVanish('firstCard') 
 
-    }, {once: true})
-    cardTwoReveal.addEventListener("mouseenter", () => {
-        
-        secondCard = drawCard()
-        if (secondCard === firstCard){
+        }, {once: true})
+        cardTwoReveal.addEventListener("mouseenter", () => {
+
             secondCard = drawCard()
-        }
-        cardPullArray.push(secondCard)
-        displayCard(secondCard, 2)
-        console.log(secondCard)
+            while (cardPullArray.some(card => card.Card === secondCard.Card)) {
+                secondCard = drawCard();
+            }
+            cardPullArray.push(secondCard)
+            handleCardVanish('secondCard')
+            displayCard(secondCard, 2)
 
-    }, {once: true})
-    cardThreeReveal.addEventListener("mouseenter", () => {
-        thirdCard = drawCard()
-       
-        if(thirdCard === secondCard, firstCard){
+        }, {once: true})
+        cardThreeReveal.addEventListener("mouseenter", () => {
+        
             thirdCard = drawCard()
-        }
+            while (cardPullArray.some(card => card.Card === thirdCard.Card)) {
+                thirdCard = drawCard()
+            }
+            cardPullArray.push(thirdCard)
+
+            handleCardVanish('thirdCard')
+            displayCard(thirdCard, 3)
+            elementCounts()
+            submitForm()
+            
+            
         
-        cardPullArray.push(thirdCard)
-        displayCard(thirdCard, 3)
-        console.log(thirdCard)
-        colorCounts()
-        
-    
-    }, {once: true})
-    
+        }, {once: true})
+    }, 2000)
+    cardHover()
 }
-
-
-
-
 
 
 
@@ -132,37 +198,92 @@ function displayCard(card, position) {
     const cardImageContainer = document.querySelector(`.card-${position}-image`);
     const meaningContainer = document.querySelector(`.card-${position}-meaning`)
     const elementContainer = document.querySelector('.color-meaning')
-   
+    const cardNumberContainer = document.querySelector(`.card-number-${position}`)
+
     const svgDataUrl = `data:image/svg+xml,${encodeURIComponent(card.Image)}`
+    
     cardImageContainer.src = svgDataUrl
     meaningContainer.textContent = card.Element + " : " + card.Card + " - " + card.Meaning;
-    elementContainer.textContent = colorCounts();
+    elementContainer.textContent = elementCounts();
+    cardNumberContainer.textContent = `CARD ${position}`
+
+    
+    cardMeaningHover(card, position)
+    
 }
 
 
 
 
+function cardHover() {
+    const containers = document.querySelectorAll('.spread-container')
+    setTimeout(() => {
+        containers.forEach(container => {
+            const card = container.querySelector('[class^="card-"]')
+            const img = container.querySelector('[class$="-image"]')
+            
+            container.addEventListener('mouseover', () => {
+            card.style.transform = "scale(1.1)"
+            if(img) img.style.transform = "scale(1.1)"
+            })
+            
+            container.addEventListener('mouseout', () => {
+            card.style.transform = "scale(1)"
+            if(img) img.style.transform = "scale(1)"
+            })
+        })
+    }, 6000)    
+}
 
-function testSpecificCard() {
-    const cardOneReveal = document.querySelector(".card-1-back")
-    
-    fetch("http://localHost:3000/Card-Library")
-        .then(response => response.json())
-        .then(data => {
-            // Wait for the deck to be loaded
-            cardOneReveal.addEventListener("mouseenter", () => {
-                const firstCard = {
-                    'Card': 'NGC 7049 - THE DARK EYE',
-                    'Element': 'Void',
-                    'Meaning': data.voidCards['NGC 7049 - The Dark Eye'].meaning,
-                    'Image': data.voidCards['NGC 7049 - The Dark Eye'].image
-                }
-                
-                cardPullArray.push(firstCard)
-                displayCard(firstCard, 1)
-                console.log(firstCard)
-            }, {once: true})
+
+
+function cardMeaningHover(card, position){
+
+        const meaningBlock = document.querySelector(`.card-${position}-meaning`)
+
+        meaningBlock.addEventListener('mouseover', () => {
+            colorElementObject = {
+                Void: "#191970",
+                Light: "#ffe5b4",
+                Gravity: "#483c8b",
+                Time: "#8fbc8f",
+                Matter: "#8b4413",
+                Chaos: "#8b0000",
+                Harmony: "#8b7b8b",
+                Energy: "#ff8c00",
+                Spirit: "#4b0082"
+            }
+            const color = colorElementObject[card.Element];
+            meaningBlock.style.backgroundColor = color;
+            meaningBlock.style.backgroundColor = `${color}80` 
+            meaningBlock.style.padding = "10px"
+            
+            
+            elementText(card, colorElementObject)
+            
+        })
+        meaningBlock.addEventListener('mouseout', () => {
+            meaningBlock.style.backgroundColor = "transparent";
+            meaningBlock.style.padding = "0px"
         });
+}
+
+
+
+function elementText(card, colorElementObject){
+    const elementBlock = document.querySelector('.color-meaning')
+    const color = colorElementObject[card.Element];
+    elementBlock.addEventListener('mouseover', () => {
+        elementBlock.style.backgroundColor = color;
+        elementBlock.style.backgroundColor = `${color}80` 
+        elementBlock.style.padding = "10px"
+        elementBlock.classList.add('elementColors')
+    })
+    elementBlock.addEventListener('mouseout', () => {
+        elementBlock.style.padding = "0px"
+        elementBlock.style.backgroundColor = "transparent"
+    })
+    
 }
 
 
@@ -170,10 +291,12 @@ function testSpecificCard() {
 function background(){
     const backgroundImage = document.createElement('img')
     backgroundImage.src = 'Images/Others/_BB18312.jpg'
-    const html = document.querySelector('html')
-    html.appendChild(backgroundImage)
+    const body = document.querySelector('body')
+    body.appendChild(backgroundImage)
     backgroundImage.id = 'night-sky'
 }
+
+
 
 function enterButton(){
     const buttonElement = document.querySelector('#enter-button')
@@ -181,26 +304,81 @@ function enterButton(){
     const prismTextElement = document.querySelector('.tessellation-container');
     enterTextElement.style.cursor = 'pointer'
     buttonElement.addEventListener('click', () => {
-        prismTextElement.style.display = "none";
-        enterTextElement.style.display = "none";
+        // prismTextElement.classList.add('invisible')
+        // enterTextElement.style.display = "none";
+        // buttonElement.style.display = "none"
+        
+        prismTextElement.style.transition = 'opacity 0.5s ease'
+        enterTextElement.style.transition = 'opacity 0.5s ease'
+   
+        // Start fade
+        prismTextElement.style.opacity = '0'
+        enterTextElement.style.opacity = '0'
+        
+        // After fade completes, then hide
+        setTimeout(() => {
+        prismTextElement.style.display = "none"
+        enterTextElement.style.display = "none"
         buttonElement.style.display = "none"
-        // landingCardSpread()
+   }, 500)
+        
+        
     })
 }
 
 
 
+function submitForm(){
+    const form = document.getElementById('screenshotForm');
+    const formContainer = document.querySelector('.form-container')    
+    formContainer.classList.add('form-visible')
+    
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const filename = document.getElementById('filename').value;
+        const fullFilename = `${filename}.png`
+
+        html2canvas(document.body, {
+            backgroundColor: null,
+            useCORS: true,
+            allowTaint: true,  // Add this to allow cross-origin images
+            foreignObjectRendering: true,  // Add this to help with SVGs/images
+            scale: 1,
+            logging: true,
+            // onclone: function(clonedDoc) {}
+        }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = fullFilename;
+            link.href = canvas.toDataURL();
+            link.click();
+           });
+        form.reset()
+    })
+   
+}
+
+
+// function textLine(){
+//    const landingBanner = document.querySelector('.text-line')
+//    landingBanner.classList.add('visible')
+// }
+
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
-
+    
+    cardBacks()
     threeCardSpread()
     enterButton()
     background()
-    //testSpecificCard()
-
+    
+    
 
 })
+
+
 
 
 
