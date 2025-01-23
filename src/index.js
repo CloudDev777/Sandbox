@@ -68,8 +68,8 @@ function elementCounts(){
             }  
             for(let element in elementCounts){
                 if(elementCounts[element] > 1){
-                    return elementMeanings[element]
                     
+                    return elementMeanings[element]
                     
                 }
             }   
@@ -137,11 +137,6 @@ function handleCardVanish(card){
 
 
 
-
-
-
-
-
 function threeCardSpread() {
     const cardOneReveal = document.querySelector(".card-1")
     const cardTwoReveal = document.querySelector(".card-2")
@@ -188,7 +183,7 @@ function threeCardSpread() {
             
         
         }, {once: true})
-    }, 2000)
+    }, 4000)
     cardHover()
 }
 
@@ -232,7 +227,7 @@ function cardHover() {
             if(img) img.style.transform = "scale(1)"
             })
         })
-    }, 6000)    
+    }, 1000)    
 }
 
 
@@ -272,7 +267,8 @@ function cardMeaningHover(card, position){
 
 function elementText(card, colorElementObject){
     const elementBlock = document.querySelector('.color-meaning')
-    const color = colorElementObject[card.Element];
+    const color = colorElementObject[card.Element]
+
     elementBlock.addEventListener('mouseover', () => {
         elementBlock.style.backgroundColor = color;
         elementBlock.style.backgroundColor = `${color}80` 
@@ -298,33 +294,30 @@ function background(){
 
 
 
-function enterButton(){
+function enterButton() {
     const buttonElement = document.querySelector('#enter-button')
-    const enterTextElement = document.querySelector('#enter');
-    const prismTextElement = document.querySelector('.tessellation-container');
+    const enterTextElement = document.querySelector('#enter')
+    const prismTextElement = document.querySelector('.tessellation-container')
+    const textElements = document.querySelectorAll('.text-line')
+    
     enterTextElement.style.cursor = 'pointer'
+    
     buttonElement.addEventListener('click', () => {
-        // prismTextElement.classList.add('invisible')
-        // enterTextElement.style.display = "none";
-        // buttonElement.style.display = "none"
-        
-        prismTextElement.style.transition = 'opacity 0.5s ease'
-        enterTextElement.style.transition = 'opacity 0.5s ease'
-   
-        // Start fade
-        prismTextElement.style.opacity = '0'
-        enterTextElement.style.opacity = '0'
-        
-        // After fade completes, then hide
-        setTimeout(() => {
-        prismTextElement.style.display = "none"
+      
+      prismTextElement.style.transition = 'opacity 0.5s ease'
+      enterTextElement.style.transition = 'opacity 0.5s ease'
+      
+      prismTextElement.style.opacity = '0'
+      enterTextElement.style.opacity = '0'
+      
+      setTimeout(() => {
+        prismTextElement.style.display = 'none'
         enterTextElement.style.display = "none"
         buttonElement.style.display = "none"
-   }, 500)
-        
-        
+      }, 500)
     })
 }
+
 
 
 
@@ -342,11 +335,11 @@ function submitForm(){
         html2canvas(document.body, {
             backgroundColor: null,
             useCORS: true,
-            allowTaint: true,  // Add this to allow cross-origin images
-            foreignObjectRendering: true,  // Add this to help with SVGs/images
+            allowTaint: true,  
+            foreignObjectRendering: true,  
             scale: 1,
             logging: true,
-            // onclone: function(clonedDoc) {}
+            
         }).then(canvas => {
             const link = document.createElement('a');
             link.download = fullFilename;
@@ -359,10 +352,7 @@ function submitForm(){
 }
 
 
-// function textLine(){
-//    const landingBanner = document.querySelector('.text-line')
-//    landingBanner.classList.add('visible')
-// }
+
 
 
 

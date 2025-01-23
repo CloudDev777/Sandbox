@@ -64,7 +64,7 @@ h1 {
     font-family: "Akira-Extended-Demo", sans-serif;
     width: 100%;
     white-space: nowrap;
-    font-size: 9.2vw;
+    font-size: 6.7vw;
     line-height: .8;
     font-weight: bold;
     background: linear-gradient(45deg,violet,red, red, orange, yellow, green, blue, indigo, violet); /* cannoot figure out this last transition issue*/
@@ -93,7 +93,6 @@ h1 {
 
 #outer-spread-container{
     width: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -118,7 +117,7 @@ h1 {
 
 .card-vanish{
     display: none;
-    transition: 0.5s ease;
+    
 }
 
 .card-number-1, .card-number-2, .card-number-3{
@@ -203,7 +202,7 @@ h1 {
 
 #screenshotForm{
     text-align: center;
-    padding: 90px;
+    padding:60px;
     
 }
     
