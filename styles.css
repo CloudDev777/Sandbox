@@ -1,9 +1,16 @@
 
 
+html {
+  overflow-y: scroll; /* Always show scrollbar */
+  scrollbar-gutter: stable; /* Reserves space for scrollbar */
+}
+
+
+
 html, body {
     margin: 0;
     padding: 0;
-    
+    height: 130%;
 }
 
 
@@ -251,6 +258,8 @@ h1 {
 
 .form-container{
     visibility: hidden;
+   
+   
 }
 
 .form-visible{
@@ -260,7 +269,7 @@ h1 {
 
 #screenshotForm{
     text-align: center;
-    padding: 50px;
+    padding: 30px;
     
     
 }

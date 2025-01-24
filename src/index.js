@@ -51,8 +51,7 @@ function drawCard() {
         'Element': deckElements[randomDeckIndex],    
         'Meaning': randomDeck[randomCardName].meaning,
         'Image' : randomDeck[randomCardName].image    
-    }  
-       
+    }        
     
 }
 
@@ -61,8 +60,11 @@ function drawCard() {
 let cardPullArray = [] 
 
 
+
 function elementCounts(){
+
     let elementCounts = {} 
+
             for(let card of cardPullArray){ 
                 elementCounts[card.Element] = (elementCounts[card.Element] || 0) + 1 
             }  
@@ -157,6 +159,7 @@ function threeCardSpread() {
             displayCard(firstCard, 1)
             handleCardVanish('firstCard')
             invisibleButtonOne.classList.add('button-vanish')
+
         }, { once: true })
 
         invisibleButtonTwo.addEventListener('click', () => {
@@ -168,6 +171,7 @@ function threeCardSpread() {
             handleCardVanish('secondCard')
             displayCard(secondCard, 2)
             invisibleButtonTwo.classList.add('button-vanish')
+
         }, { once: true })
 
         invisibleButtonThree.addEventListener('click', () => {
@@ -179,70 +183,16 @@ function threeCardSpread() {
             handleCardVanish('thirdCard')
             displayCard(thirdCard, 3)
             invisibleButtonThree.classList.add('button-vanish')
+            
             elementCounts()
             submitForm()
+
         }, { once: true })
     }, 3000)
     cardHover()
 }
 
 
-
-// function threeCardSpread() {
-//     const cardOneReveal = document.querySelector(".card-1")
-//     const cardTwoReveal = document.querySelector(".card-2")
-//     const cardThreeReveal = document.querySelector(".card-3")
-
-//     let firstCard
-//     let secondCard
-//     let thirdCard
-
-
-
-//     setTimeout( () => {
-//         cardOneReveal.addEventListener("click", () =>{  
-            
-//             firstCard = drawCard()
-//             cardPullArray.push(firstCard)
-            
-            
-//             displayCard(firstCard, 1)
-//             // cardButtons('firstCard') 
-
-//         }, {once: true})
-//         cardTwoReveal.addEventListener("click", () => {
-
-//             secondCard = drawCard()
-//             while (cardPullArray.some(card => card.Card === secondCard.Card)) {
-//                 secondCard = drawCard();
-//             }
-//             cardPullArray.push(secondCard)
-//             // cardButtons('secondCard')
-//             displayCard(secondCard, 2)
-
-//         }, {once: true})
-//         cardThreeReveal.addEventListener("click", () => {
-        
-//             thirdCard = drawCard()
-//             while (cardPullArray.some(card => card.Card === thirdCard.Card)) {
-//                 thirdCard = drawCard()
-//             }
-//             cardPullArray.push(thirdCard)
-
-//             // cardButtons('thirdCard')
-//             displayCard(thirdCard, 3)
-//             elementCounts()
-//             submitForm()
-
-           
-           
-            
-            
-        
-//         }, {once: true})
-//     }, 6000)
-//     cardHover()
-// }
 
 
 
@@ -379,6 +329,7 @@ function enterButton() {
 
 
 function submitForm(){
+
     const form = document.getElementById('screenshotForm');
     const formContainer = document.querySelector('.form-container')    
     formContainer.classList.add('form-visible')
@@ -420,6 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
     threeCardSpread()
     enterButton()
     background()
+    
     
     
 
