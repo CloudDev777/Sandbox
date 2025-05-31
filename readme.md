@@ -19,6 +19,3 @@ All that was left to do was piece together the parts under the hood, throw a coa
 my confusingly centered text and also more tangled div's. There are so many things I want to do to truly finish this, but 
 the bell tower is sounding and this project is awaited.
 
-
-bissou,
-Brandon Bakus
